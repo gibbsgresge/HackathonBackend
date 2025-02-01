@@ -1,0 +1,66 @@
+/* styles.css */
+
+/* Define default theme colors */
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --accent-color: #e74c3c;
+  }
+  
+  /* Global Styles */
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: var(--primary-color);
+    color: #fff;
+  }
+  
+  /* Header styling using the secondary color */
+  .header {
+    background-color: var(--secondary-color);
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  /* Container for the theme packs */
+  .theme-pack-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  /* Styling for each theme pack card */
+  .theme-pack {
+    background: #fff;
+    color: #333;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    padding: 1rem;
+    cursor: pointer;
+    transition: transform 0.3s;
+    text-align: center;
+  }
+  
+  .theme-pack:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Color swatch preview within each card */
+  .color-swatch {
+    width: 100%;
+    height: 50px;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Preview area that also uses one of the theme colors */
+  .preview {
+    padding: 2rem;
+    background-color: var(--accent-color);
+    text-align: center;
+    margin: 1rem;
+    border-radius: 8px;
+  }
+  

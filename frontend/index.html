@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Color Theme Packs</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Header that also uses a CSS variable -->
+  <header class="header">
+    <h1>Choose Your Color Theme</h1>
+  </header>
+
+  <!-- Theme Pack Cards Container -->
+  <main>
+    <section class="theme-pack-container">
+      <!-- Theme Pack 1 -->
+      <div class="theme-pack" 
+           data-primary="#3498db" 
+           data-secondary="#2ecc71" 
+           data-accent="#e74c3c">
+        <div class="color-swatch" style="background-color: #3498db;"></div>
+        <div class="color-swatch" style="background-color: #2ecc71;"></div>
+        <div class="color-swatch" style="background-color: #e74c3c;"></div>
+        <p>Theme Pack 1</p>
+      </div>
+      
+      <!-- Theme Pack 2 -->
+      <div class="theme-pack" 
+           data-primary="#1abc9c" 
+           data-secondary="#16a085" 
+           data-accent="#f39c12">
+        <div class="color-swatch" style="background-color: #1abc9c;"></div>
+        <div class="color-swatch" style="background-color: #16a085;"></div>
+        <div class="color-swatch" style="background-color: #f39c12;"></div>
+        <p>Theme Pack 2</p>
+      </div>
+
+      <!-- Theme Pack 3 -->
+      <div class="theme-pack" 
+           data-primary="#9b59b6" 
+           data-secondary="#8e44ad" 
+           data-accent="#e67e22">
+        <div class="color-swatch" style="background-color: #9b59b6;"></div>
+        <div class="color-swatch" style="background-color: #8e44ad;"></div>
+        <div class="color-swatch" style="background-color: #e67e22;"></div>
+        <p>Theme Pack 3</p>
+      </div>
+
+      <!-- Add additional theme packs here (up to 12 or more) -->
+    </section>
+  </main>
+
+  <!-- A preview area to see the theme in action -->
+  <section class="preview">
+    <h2>Preview Area</h2>
+    <p>This section reflects your selected theme!</p>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
