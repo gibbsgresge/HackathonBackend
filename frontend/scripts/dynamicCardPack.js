@@ -1,6 +1,18 @@
 document.addEventListener("DOMContentLoaded", async () => {
   const themeCardsContainer = document.getElementById("themeCards");
 
+  // Define the default theme colors
+  const defaultColors = {
+    primary: "#3498db",
+    secondary: "#2ecc71",
+    accent1: "#e74c3c",
+    accent2: "#e74c3c"
+  };
+  const header = document.querySelector('header');
+          if (header) {
+              header.style.backgroundColor = defaultColors.accent1;
+          }
+
   try {
       // Fetch color packs from backend
       const response = await fetch("http://localhost:5000/api/colorpacks"); // Update URL if deployed
@@ -56,6 +68,24 @@ document.addEventListener("DOMContentLoaded", async () => {
 
           // Append to the container
           themeCardsContainer.appendChild(themeCard);
+      });
+
+      // Add reset functionality
+      document.getElementById("reset").addEventListener('click', () => {
+          // Reset to default colors
+          document.documentElement.style.setProperty('--primary-color', defaultColors.primary);
+          document.documentElement.style.setProperty('--secondary-color', defaultColors.secondary);
+          document.documentElement.style.setProperty('--accent1-color', defaultColors.accent1);
+          document.documentElement.style.setProperty('--accent2-color', defaultColors.accent2);
+
+          // Reset the body and header styles
+          document.body.style.backgroundColor = defaultColors.primary;
+          document.body.style.color = defaultColors.secondary;
+
+          const header = document.querySelector('header');
+          if (header) {
+              header.style.backgroundColor = defaultColors.accent1;
+          }
       });
 
   } catch (error) {

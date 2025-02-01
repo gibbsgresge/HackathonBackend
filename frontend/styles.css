@@ -5,6 +5,8 @@
     --primary-color: #3498db;
     --secondary-color: #2ecc71;
     --accent-color: #e74c3c;
+    --accent-color1: #e74c3c;
+    --accent-color2: #e74c3c;
   }
   
   /* Global Styles */
@@ -18,7 +20,7 @@
   
   /* Header styling using the secondary color */
   .header {
-    background-color: var(--secondary-color);
+    background-color: var(--accent-color1);
     padding: 1rem;
     text-align: center;
   }
@@ -55,14 +57,6 @@
     margin-bottom: 0.5rem;
   }
   
-  /* Preview area that also uses one of the theme colors */
-  .preview {
-    padding: 2rem;
-    background-color: var(--accent-color);
-    text-align: center;
-    margin: 1rem;
-    border-radius: 8px;
-  }
 
   .login-container {
     width: 300px;
