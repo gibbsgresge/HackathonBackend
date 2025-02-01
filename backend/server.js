@@ -3,7 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-
+const authRoutes = require("./routes/auth");
 const ColorPack = require('./models/ColorPack');
 
 const app = express();
@@ -11,6 +11,7 @@ const app = express();
 // Middleware
 app.use(express.json());
 app.use(cors()); // Allow cross-origin requests if your frontend is hosted elsewhere
+app.use("/api/auth", authRoutes);
 
 // Connect to MongoDB Atlas
 mongoose
