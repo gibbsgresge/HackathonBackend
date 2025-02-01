@@ -17,3 +17,7 @@ themePacks.forEach(pack => {
     document.documentElement.style.setProperty('--accent-color', accent);
   });
 });
+
+document.getElementById("loginBtn").addEventListener("click", () => {
+  window.location.href = "login.html";
+});
