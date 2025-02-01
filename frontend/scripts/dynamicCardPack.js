@@ -34,15 +34,36 @@ document.addEventListener("DOMContentLoaded", async () => {
           themeCard.innerHTML = `
               <p>${pack.name}</p>
               <div class="mt-2 flex gap-2">
-                  <div class="w-6 h-6 rounded" style="background-color: ${pack.primary};"></div>
-                  <div class="w-6 h-6 rounded" style="background-color: ${pack.secondary};"></div>
-                  <div class="w-6 h-6 rounded" style="background-color: ${pack.accent1};"></div>
-                  <div class="w-6 h-6 rounded" style="background-color: ${pack.accent2};"></div>
+              <div class="relative group">
+                  <div class="w-6 h-6 rounded hover:scale-125 transition-transform duration-200 cursor-pointer" style="background-color: ${pack.primary};" onclick="copyToClipboard('${pack.primary}', this)"></div>
+                  <span class="absolute left-6 -top-6 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                      ${pack.primary}
+                  </span>
               </div>
+              <div class="relative group">
+                  <div class="w-6 h-6 rounded hover:scale-125 transition-transform duration-200 cursor-pointer" style="background-color: ${pack.secondary};" onclick="copyToClipboard('${pack.secondary}', this)"></div>
+                  <span class="absolute left-6 -top-6 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                      ${pack.secondary}
+                  </span>
+              </div>
+              <div class="relative group">
+                  <div class="w-6 h-6 rounded hover:scale-125 transition-transform duration-200 cursor-pointer" style="background-color: ${pack.accent1};" onclick="copyToClipboard('${pack.accent1}', this)"></div>
+                  <span class="absolute left-6 -top-6 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                      ${pack.accent1}
+                  </span>
+              </div>
+              <div class="relative group">
+                  <div class="w-6 h-6 rounded hover:scale-125 transition-transform duration-200 cursor-pointer" style="background-color: ${pack.accent2};" onclick="copyToClipboard('${pack.accent2}', this)"></div>
+                  <span class="absolute left-6 -top-6 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                      ${pack.accent2}
+                  </span>
+              </div>
+          </div>
           `;
 
           // Add click event to change the theme when a card is clicked
           themeCard.addEventListener('click', () => {
+
               // Extract colors from the clicked theme card
               const primary = pack.primary;
               const secondary = pack.secondary;
