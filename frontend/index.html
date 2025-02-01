@@ -6,6 +6,7 @@
   <title>Scheme Scraper</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="icon" href="./paint-roller-solid.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body class="text-gray-900">
 
@@ -30,10 +31,32 @@
     <!-- Theme packs will be inserted dynamically here -->
   </div>
 
-  <scrip src="scripts/search.js"></scrip>
+  <script src="scripts/search.js"></script>
   <script src="scripts/dynamicCardPack.js"></script>
   <script src="scripts/resetscheme.js"></script>
   <script src="scripts/auth.js"></script>
+  <script>
+    function copyToClipboard(color, element) {
+        // Copy color code to clipboard
+        navigator.clipboard.writeText(color).then(() => {
+            const tooltip = element.nextElementSibling; // Get the tooltip span
+            const originalText = tooltip.innerText; // Store original color text
+    
+            // Change tooltip text to "Copied!"
+            tooltip.innerText = "Copied!";
+            
+            // Keep tooltip visible
+            tooltip.classList.remove("opacity-0");
+    
+            // Revert tooltip text after 1.5 seconds
+            setTimeout(() => {
+                tooltip.innerText = originalText;
+                tooltip.classList.add("opacity-0");
+            }, 400);
+        }).catch(err => console.error("Failed to copy:", err));
+    }
+    </script>
+    
 
 </body>
 </html>
