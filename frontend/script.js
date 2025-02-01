@@ -1,20 +1,14 @@
-// script.js
+document.getElementById('searchInput').addEventListener('input', function() {
+  const searchQuery = this.value.toLowerCase();
+  const themeCards = document.querySelectorAll('.theme-pack');
 
-// Select all theme pack cards
-const themePacks = document.querySelectorAll('.theme-pack');
-
-// Loop through each pack and add a click event listener
-themePacks.forEach(pack => {
-  pack.addEventListener('click', () => {
-    // Retrieve colors from data attributes
-    const primary = pack.getAttribute('data-primary');
-    const secondary = pack.getAttribute('data-secondary');
-    const accent = pack.getAttribute('data-accent');
-
-    // Update the CSS variables to change the theme
-    document.documentElement.style.setProperty('--primary-color', primary);
-    document.documentElement.style.setProperty('--secondary-color', secondary);
-    document.documentElement.style.setProperty('--accent-color', accent);
+  themeCards.forEach(card => {
+    const cardText = card.querySelector('p').textContent.toLowerCase();
+    if (cardText.includes(searchQuery)) {
+      card.style.display = 'block'; // Show the card
+    } else {
+      card.style.display = 'none'; // Hide the card
+    }
   });
 });
 
