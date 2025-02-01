@@ -3,61 +3,80 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Color Theme Packs</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>Scheme Scraper</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="./paint-roller-solid.svg" type="image/svg+xml">
 </head>
-<body>
-  <!-- Header that also uses a CSS variable -->
-  <header class="header">
-    <h1>Choose Your Color Theme</h1>
+<body class="bg-gray-100 text-gray-900">
+
+  <!-- Header -->
+  <header class="bg-blue-500 text-white text-3xl text-center py-8">
+    <h1 class="text-3xl font-bold">Scheme Scraper</h1>
   </header>
 
+  <!-- Search Bar -->
+  <div class="flex justify-center my-6">
+    <input
+      type="text"
+      id="searchInput"
+      class="w-1/2 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+      placeholder="Search theme packs by name..."
+    />
+  </div>
+
   <!-- Theme Pack Cards Container -->
-  <main>
-    <section class="theme-pack-container">
-      <!-- Theme Pack 1 -->
-      <div class="theme-pack" 
-           data-primary="#3498db" 
-           data-secondary="#2ecc71" 
-           data-accent="#e74c3c">
-        <div class="color-swatch" style="background-color: #3498db;"></div>
-        <div class="color-swatch" style="background-color: #2ecc71;"></div>
-        <div class="color-swatch" style="background-color: #e74c3c;"></div>
-        <p>Theme Pack 1</p>
-      </div>
-      
-      <!-- Theme Pack 2 -->
-      <div class="theme-pack" 
-           data-primary="#1abc9c" 
-           data-secondary="#16a085" 
-           data-accent="#f39c12">
-        <div class="color-swatch" style="background-color: #1abc9c;"></div>
-        <div class="color-swatch" style="background-color: #16a085;"></div>
-        <div class="color-swatch" style="background-color: #f39c12;"></div>
-        <p>Theme Pack 2</p>
-      </div>
+  <div id="themeCards" class="px-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-6">
+    
+    <!-- Theme Pack 1 -->
+    <div class="theme-pack p-4 bg-white rounded-lg shadow-lg cursor-pointer" data-primary="#3498db">
+      <p>Theme Pack 1</p>
+    </div>
 
-      <!-- Theme Pack 3 -->
-      <div class="theme-pack" 
-           data-primary="#9b59b6" 
-           data-secondary="#8e44ad" 
-           data-accent="#e67e22">
-        <div class="color-swatch" style="background-color: #9b59b6;"></div>
-        <div class="color-swatch" style="background-color: #8e44ad;"></div>
-        <div class="color-swatch" style="background-color: #e67e22;"></div>
-        <p>Theme Pack 3</p>
-      </div>
+    <!-- Theme Pack 2 -->
+    <div class="theme-pack p-4 bg-white rounded-lg shadow-lg cursor-pointer" data-primary="#1abc9c">
+      <p>Theme Pack 2</p>
+    </div>
 
-      <!-- Add additional theme packs here (up to 12 or more) -->
-    </section>
-  </main>
+    <!-- Theme Pack 3 -->
+    <div class="theme-pack p-4 bg-white rounded-lg shadow-lg cursor-pointer" data-primary="#9b59b6">
+      <p>Theme Pack 3</p>
+    </div>
 
-  <!-- A preview area to see the theme in action -->
-  <section class="preview">
-    <h2>Preview Area</h2>
-    <p>This section reflects your selected theme!</p>
-  </section>
+    <!-- Theme Pack 3 -->
+    <div class="theme-pack p-4 bg-white rounded-lg shadow-lg cursor-pointer" data-primary="#9b59b6">
+      <p>Theme Pack 4</p>
+    </div>
 
-  <script src="script.js"></script>
+    <!-- Theme Pack 3 -->
+    <div class="theme-pack p-4 bg-white rounded-lg shadow-lg cursor-pointer" data-primary="#9b59b6">
+      <p>Theme Pack 5</p>
+    </div>
+    <div class="theme-pack p-4 bg-white rounded-lg shadow-lg cursor-pointer" data-primary="#9b59b6">
+      <p>Theme Pack 6</p>
+    </div>
+    <div class="theme-pack p-4 bg-white rounded-lg shadow-lg cursor-pointer" data-primary="#9b59b6">
+      <p>Theme Pack 7</p>
+    </div>
+    <div class="theme-pack p-4 bg-white rounded-lg shadow-lg cursor-pointer" data-primary="#9b59b6">
+      <p>Theme Pack 8</p>
+    </div>
+
+  </div>
+
+  <script>
+    document.getElementById('searchInput').addEventListener('input', function() {
+      const searchQuery = this.value.toLowerCase();
+      const themeCards = document.querySelectorAll('.theme-pack');
+
+      themeCards.forEach(card => {
+        const cardText = card.querySelector('p').textContent.toLowerCase();
+        if (cardText.includes(searchQuery)) {
+          card.style.display = 'block'; // Show the card
+        } else {
+          card.style.display = 'none'; // Hide the card
+        }
+      });
+    });
+  </script>
 </body>
 </html>
