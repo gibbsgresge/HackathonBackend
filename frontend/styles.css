@@ -16,6 +16,7 @@
     font-family: sans-serif;
     background-color: var(--primary-color);
     color: #fff;
+    font-family: 'Montserrat', sans-serif;
   }
   
   /* Header styling using the secondary color */
@@ -285,4 +286,3 @@ button:hover {
   border: 3px solid var(--primary-color);
   outline: 2px solid rgba(52, 152, 219, 0.4); /* Extra subtle glow */
 }
-
