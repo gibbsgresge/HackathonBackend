@@ -1,0 +1,42 @@
+# Node.js dependencies
+node_modules/
+package-lock.json
+
+# Environment variables
+.env
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Editor/IDE files
+.vscode/
+.idea/
+*.sublime-workspace
+
+# Build and temp files
+dist/
+tmp/
+out/
+
+# Coverage reports (if using Jest or similar)
+coverage/
+
+# Database dumps and local MongoDB files
+dump/
+*.gz
+
+# Process manager files (e.g., PM2 logs)
+pm2_logs/
+
+# Miscellaneous
+*.bak
+*.swp
