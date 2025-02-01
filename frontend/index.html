@@ -13,10 +13,18 @@
 </head>
 <body class="text-gray-900 bg-gray-100">
 
-  <!-- Header -->
-  <header class="text-white text-3xl text-center py-8">
-    <h1 id="reset" class="text-3xl font-bold">Scheme Scraper</h1>
-  </header>
+ <!-- Header with Navbar -->
+ <header class="bg-blue-600 text-white text-3xl py-4 px-8 flex justify-between items-center">
+  <h1 id="reset" class="text-3xl font-bold cursor-pointer">Scheme Scraper</h1>
+  
+  <!-- Dynamic Navigation -->
+  <nav>
+    <ul id="nav-links" class="flex space-x-4">
+      <li><button id="loginBtn" class="bg-white text-blue-600 px-4 py-2 rounded-lg font-bold hover:bg-gray-200">Login</button></li>
+      <li><button id="signupBtn" class="bg-white text-blue-600 px-4 py-2 rounded-lg font-bold hover:bg-gray-200">Sign Up</button></li>
+    </ul>
+  </nav>
+</header>
 
   <!-- Search Bar -->
   <div class="flex justify-center my-6">
