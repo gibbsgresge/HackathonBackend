@@ -6,6 +6,9 @@ const colorPackSchema = new mongoose.Schema({
   secondary: { type: String, required: true },      // e.g., "#2ecc71"
   accent1: { type: String, required: true },        // e.g., "#e74c3c"
   accent2: { type: String, required: true },        // e.g., "#f1c40f"
+  author: {type: String, required: true },
+  likes: {type: Number, required: true},
+  dislikes: {type: Number, required: true},
   createdAt: { type: Date, default: Date.now }
 });
 
