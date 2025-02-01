@@ -9,14 +9,21 @@
   <link rel="stylesheet" href="styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
-<body class="text-gray-900">
+<body class="text-gray-900 bg-gray-100">
 
-  <!-- Header -->
-  <header class="text-white text-3xl text-center py-8">
-    <h1 id="reset" class="text-3xl font-bold">Scheme Scraper</h1>
+  <!-- Header with Navbar -->
+  <header class="bg-blue-600 text-white text-3xl py-4 px-8 flex justify-between items-center">
+    <h1 id="reset" class="text-3xl font-bold cursor-pointer">Scheme Scraper</h1>
+    
+    <!-- Dynamic Navigation -->
+    <nav>
+      <ul id="nav-links" class="flex space-x-4">
+        <li><button id="loginBtn" class="bg-white text-blue-600 px-4 py-2 rounded-lg font-bold hover:bg-gray-200">Login</button></li>
+        <li><button id="signupBtn" class="bg-white text-blue-600 px-4 py-2 rounded-lg font-bold hover:bg-gray-200">Sign Up</button></li>
+      </ul>
+    </nav>
   </header>
 
-  
   <!-- Search Bar -->
   <div class="flex justify-center my-6">
     <input
@@ -36,28 +43,22 @@
   <script src="scripts/dynamicCardPack.js"></script>
   <script src="scripts/resetscheme.js"></script>
   <script src="scripts/auth.js"></script>
+
   <script>
     function copyToClipboard(color, element) {
-        // Copy color code to clipboard
         navigator.clipboard.writeText(color).then(() => {
-            const tooltip = element.nextElementSibling; // Get the tooltip span
-            const originalText = tooltip.innerText; // Store original color text
+            const tooltip = element.nextElementSibling;
+            const originalText = tooltip.innerText;
     
-            // Change tooltip text to "Copied!"
             tooltip.innerText = "Copied!";
-            
-            // Keep tooltip visible
             tooltip.classList.remove("opacity-0");
-    
-            // Revert tooltip text after 1.5 seconds
+
             setTimeout(() => {
                 tooltip.innerText = originalText;
                 tooltip.classList.add("opacity-0");
             }, 400);
         }).catch(err => console.error("Failed to copy:", err));
     }
-    </script>
-    
-
+  </script>
 </body>
 </html>
