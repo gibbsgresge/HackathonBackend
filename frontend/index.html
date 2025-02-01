@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Scheme Scraper</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="icon" href="images/paint-roller-solid.svg" type="image/svg+xml">
+  <link rel="icon" href="./paint-roller-solid.svg" type="image/svg+xml">
 </head>
-<body class="bg-gray-100 text-gray-900">
+<body class="text-gray-900">
 
   <!-- Header -->
-  <header class="bg-blue-500 text-white text-3xl text-center py-8">
-    <h1 class="text-3xl font-bold">Scheme Scraper</h1>
+  <header class="text-white text-3xl text-center py-8">
+    <h1 id="reset" class="text-3xl font-bold">Scheme Scraper</h1>
   </header>
 
   <!-- Search Bar -->
@@ -28,24 +28,10 @@
   <div id="themeCards" class="px-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-6">
     <!-- Theme packs will be inserted dynamically here -->
   </div>
-  
 
-  <script>
-    document.getElementById('searchInput').addEventListener('input', function() {
-      const searchQuery = this.value.toLowerCase();
-      const themeCards = document.querySelectorAll('.theme-pack');
-
-      themeCards.forEach(card => {
-        const cardText = card.querySelector('p').textContent.toLowerCase();
-        if (cardText.includes(searchQuery)) {
-          card.style.display = 'block'; // Show the card
-        } else {
-          card.style.display = 'none'; // Hide the card
-        }
-      });
-    });
-  </script>
+  <scrip src="scripts/search.js"></scrip>
   <script src="scripts/dynamicCardPack.js"></script>
+  <script src="scripts/resetscheme.js"></script>
   <script src="scripts/auth.js"></script>
 
 </body>
