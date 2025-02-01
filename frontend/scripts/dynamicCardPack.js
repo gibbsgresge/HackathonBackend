@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   // Define the default theme colors
   const defaultColors = {
     primary: "#3498db",
-    secondary: "#2ecc71",
+    secondary: "#FFFFFF",
     accent1: "#e74c3c",
     accent2: "#e74c3c"
   };
@@ -32,33 +32,51 @@ document.addEventListener("DOMContentLoaded", async () => {
 
           // Add theme name
           themeCard.innerHTML = `
-              <p>${pack.name}</p>
-              <div class="mt-2 flex gap-2">
-              <div class="relative group">
-                  <div class="w-6 h-6 rounded hover:scale-125 transition-transform duration-200 cursor-pointer" style="background-color: ${pack.primary};" onclick="copyToClipboard('${pack.primary}', this)"></div>
-                  <span class="absolute left-6 -top-6 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                      ${pack.primary}
-                  </span>
-              </div>
-              <div class="relative group">
-                  <div class="w-6 h-6 rounded hover:scale-125 transition-transform duration-200 cursor-pointer" style="background-color: ${pack.secondary};" onclick="copyToClipboard('${pack.secondary}', this)"></div>
-                  <span class="absolute left-6 -top-6 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                      ${pack.secondary}
-                  </span>
-              </div>
-              <div class="relative group">
-                  <div class="w-6 h-6 rounded hover:scale-125 transition-transform duration-200 cursor-pointer" style="background-color: ${pack.accent1};" onclick="copyToClipboard('${pack.accent1}', this)"></div>
-                  <span class="absolute left-6 -top-6 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                      ${pack.accent1}
-                  </span>
-              </div>
-              <div class="relative group">
-                  <div class="w-6 h-6 rounded hover:scale-125 transition-transform duration-200 cursor-pointer" style="background-color: ${pack.accent2};" onclick="copyToClipboard('${pack.accent2}', this)"></div>
-                  <span class="absolute left-6 -top-6 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                      ${pack.accent2}
-                  </span>
-              </div>
-          </div>
+            <p>${pack.name}</p>
+            <div>Author</div>
+
+            <div class="w-full h-px bg-gray-300 my-2"></div>
+            
+            <div class="justify-center mt-2 flex gap-2">
+                <div class="relative group">
+                    <div class="w-6 h-10 rounded-lg hover:scale-125 transition-transform duration-200 cursor-pointer" style="background-color: ${pack.primary};" onclick="copyToClipboard('${pack.primary}', this)"></div>
+                    <span class="absolute left-6 -top-6 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                        ${pack.primary}
+                    </span>
+                </div>
+                <div class="relative group">
+                    <div class="w-6 h-10 rounded-lg hover:scale-125 transition-transform duration-200 cursor-pointer" style="background-color: ${pack.secondary};" onclick="copyToClipboard('${pack.secondary}', this)"></div>
+                    <span class="absolute left-6 -top-6 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                        ${pack.secondary}
+                    </span>
+                </div>
+                <div class="relative group">
+                    <div class="w-6 h-10 rounded-lg hover:scale-125 transition-transform duration-200 cursor-pointer" style="background-color: ${pack.accent1};" onclick="copyToClipboard('${pack.accent1}', this)"></div>
+                    <span class="absolute left-6 -top-6 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                        ${pack.accent1}
+                    </span>
+                </div>
+                <div class="relative group">
+                    <div class="w-6 h-10 rounded-lg hover:scale-125 transition-transform duration-200 cursor-pointer" style="background-color: ${pack.accent2};" onclick="copyToClipboard('${pack.accent2}', this)"></div>
+                    <span class="absolute left-6 -top-6 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                        ${pack.accent2}
+                    </span>
+                </div>
+            </div>
+
+            <div class="flex items-center mt-3">
+                <!-- Like Button -->
+                <buttonLike class="flex justify-center items-center gap-1 text-gray-500 hover:text-yellow-400 transition duration-200" onclick="handleLike(this)">
+                    <i class="fas fa-star"></i>
+                    <span class="text-sm font-bold" id="like-count">0</span>
+                </buttonLike>
+
+                <!-- Dislike Button -->
+                <buttonLike class="flex items-center gap-1 text-gray-500 hover:text-red-400 transition duration-200" onclick="handleDislike(this)">
+                    <i class="fas fa-star-half-alt"></i>
+                    <span class="text-sm font-bold" id="dislike-count">0</span>
+                </buttonLike>
+            </div>
           `;
 
           // Add click event to change the theme when a card is clicked

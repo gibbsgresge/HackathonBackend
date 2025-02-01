@@ -3,7 +3,7 @@
 /* Define default theme colors */
 :root {
     --primary-color: #3498db;
-    --secondary-color: #2ecc71;
+    --secondary-color: #FFFFFF;
     --accent-color: #e74c3c;
     --accent-color1: #e74c3c;
     --accent-color2: #e74c3c;
@@ -94,9 +94,6 @@ button:hover {
     color: red;
     margin-top: 10px;
 }
-  
-
-
 
 /* Background styling for login page */
 .login-page {
@@ -237,6 +234,21 @@ button:hover {
   background-color: var(--accent-color);
 }
 
+buttonLike {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+buttonLike:hover {
+  background-color: var(--accent-color);
+}
+
 /* Color Pack Preview Section */
 .color-pack-preview {
   width: 60%;
@@ -285,4 +297,18 @@ button:hover {
   box-shadow: 0px 0px 10px 4px rgba(52, 152, 219, 0.75); /* Blue glow */
   border: 3px solid var(--primary-color);
   outline: 2px solid rgba(52, 152, 219, 0.4); /* Extra subtle glow */
+}
+
+#loginBtn {
+  background-color: var(--secondary-color);
+  color: var(--accent-color);
+}
+
+#signupBtn {
+  background-color: var(--accent-color);
+  color: var(--secondary-color);
+}
+
+#reset {
+  color: var(--secondary-color);
 }
