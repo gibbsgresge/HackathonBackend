@@ -94,6 +94,11 @@ document.addEventListener("DOMContentLoaded", async () => {
               document.documentElement.style.setProperty('--accent1-color', accent1);
               document.documentElement.style.setProperty('--accent2-color', accent2);
 
+              sessionStorage.setItem('primary', primary);
+              sessionStorage.setItem('secondary', secondary);
+              sessionStorage.setItem('accent1', primary);
+              sessionStorage.setItem('accent2', secondary);
+
               // Update the website background and text colors
               document.body.style.backgroundColor = primary;
               document.body.style.color = secondary;
