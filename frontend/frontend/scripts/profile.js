@@ -28,7 +28,11 @@ document.addEventListener("DOMContentLoaded", async () => {
         return;
     }
 
-    const likedColorPacksEl = document.getElementById("likedColorPacks");
+    const totalCreationsEl = document.getElementById("totalCreations");
+    const totalLikesEl = document.getElementById("totalLikes");
+    const totalDislikesEl = document.getElementById("totalDislikes");
+    const createdColorPacksEl = document.getElementById("createdColorPacks");
+    const favoritedColorPacksEl = document.getElementById("favoritedColorPacks");
     const logoutBtn = document.getElementById("logoutBtn");
 
     try {
@@ -40,14 +44,29 @@ document.addEventListener("DOMContentLoaded", async () => {
         if (!res.ok) throw new Error("Failed to fetch user data");
         const userData = await res.json();
 
-        // Populate liked color packs
-        likedColorPacksEl.innerHTML = userData.likedColorPacks.length
+        // Update profile statistics
+        totalCreationsEl.textContent = userData.createdColorPacks.length;
+        totalLikesEl.textContent = userData.likedColorPacks.length; // Placeholder for organic likes
+        totalDislikesEl.textContent = "0"; // Placeholder for dislikes (needs backend support)
+
+        // Populate created color packs
+        createdColorPacksEl.innerHTML = userData.createdColorPacks.length
             ? ""
-            : `<p class="text-gray-500">No liked color packs yet.</p>`;
+            : `<p class="text-gray-500">No creations found.</p>`;
+
+        userData.createdColorPacks.forEach(pack => {
+            const packElement = createColorPackElement(pack);
+            createdColorPacksEl.appendChild(packElement);
+        });
+
+        // Populate favorited color packs
+        favoritedColorPacksEl.innerHTML = userData.likedColorPacks.length
+            ? ""
+            : `<p class="text-gray-500">No favorites yet.</p>`;
 
         userData.likedColorPacks.forEach(pack => {
             const packElement = createColorPackElement(pack);
-            likedColorPacksEl.appendChild(packElement);
+            favoritedColorPacksEl.appendChild(packElement);
         });
 
     } catch (error) {
