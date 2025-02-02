@@ -99,6 +99,11 @@ document.addEventListener("DOMContentLoaded", async () => {
               sessionStorage.setItem('accent1', primary);
               sessionStorage.setItem('accent2', secondary);
 
+                console.log("pr", primary);
+                console.log("se", secondary);
+                console.log("ac1", accent1);
+                console.log("ac2", accent2);
+
               // Update the website background and text colors
               document.body.style.backgroundColor = primary;
               document.body.style.color = secondary;
