@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
                 <div class="flex items-center mt-3 justify-evenly w-full">
                     <!-- Like Button -->
-                    <div class="like-btn flex justify-center items-center gap-2 transition duration-200 w-24 h-12 px-4 py-2 rounded-lg border border-transparent 
+                    <div onClick={handleLike(event.currentTarget)} class="like-btn flex justify-center items-center gap-2 text-gray-500 hover:text-yellow-500 transition duration-200 w-24 h-12 px-4 py-2 rounded-lg border border-transparent 
                         ${isLiked ? "text-yellow-400" : "text-gray-500"}"
                         data-pack-id="${pack._id}">
                         <i class="fas fa-star text-xl"></i>
@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                     </div>
 
                     <!-- Dislike Button -->
-                    <div class="dislike-btn flex items-center gap-2 text-gray-500 hover:text-red-400 transition duration-200 w-24 h-12 px-4 py-2 rounded-lg border border-transparent"
+                    <div class="dislike-btn flex justify-center items-center gap-2 text-gray-500 hover:text-red-400 transition duration-200 w-24 h-12 px-4 py-2 rounded-lg border border-transparent"
                         data-pack-id="${pack._id}">
                         <i class="fas fa-star-half-alt text-xl"></i>
                         <span class="text-sm font-bold">${pack.dislikes}</span>
@@ -127,7 +127,6 @@ function resetTheme() {
         header.style.backgroundColor = defaultColors.accent1;
     }
 
-    console.log("✅ Theme reset to default.");
 }
 
 /**
@@ -146,8 +145,6 @@ function applyTheme(pack) {
     if (header) {
         header.style.backgroundColor = pack.accent1;
     }
-
-    console.log(`✅ Theme applied: ${pack.name}`);
 }
 
 /**
