@@ -14,33 +14,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         accent2: "#e74c3c"
     };
 
-    /**
- * Reset the theme to default colors
- */
-function resetTheme() {
-    const defaultColors = {
-        primary: "#3498db",
-        secondary: "#FFFFFF",
-        accent1: "#e74c3c",
-        accent2: "#e74c3c"
-    };
-
-    document.documentElement.style.setProperty('--primary-color', defaultColors.primary);
-    document.documentElement.style.setProperty('--secondary-color', defaultColors.secondary);
-    document.documentElement.style.setProperty('--accent1-color', defaultColors.accent1);
-    document.documentElement.style.setProperty('--accent2-color', defaultColors.accent2);
-
-    document.body.style.backgroundColor = defaultColors.primary;
-    document.body.style.color = defaultColors.secondary;
-
-    const header = document.querySelector('header');
-    if (header) {
-        header.style.backgroundColor = defaultColors.accent1;
-    }
-
-    console.log("✅ Theme reset to default.");
-}
-
     // Apply default theme
     const header = document.querySelector("header");
     if (header) header.style.backgroundColor = defaultColors.accent1;
@@ -71,26 +44,6 @@ function resetTheme() {
 
         // Clear existing theme packs
         themeCardsContainer.innerHTML = "";
-
-
-
-        /**
- * Create a color swatch div
- */
-function createColorSwatch(color) {
-    return `
-        <div class="relative group">
-            <div class="w-6 h-10 rounded-lg hover:scale-125 transition-transform duration-200 cursor-pointer"
-                 style="background-color: ${color};"
-                 onclick="copyToClipboard('${color}', this)">
-            </div>
-            <span class="absolute left-6 -top-6 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                ${color}
-            </span>
-        </div>
-    `;
-}
-
 
         // Loop through color packs and generate HTML
         colorPacks.forEach(pack => {
@@ -149,3 +102,67 @@ function createColorSwatch(color) {
         console.error("❌ Error fetching color packs:", error);
     }
 });
+
+/**
+ * Reset the theme to default colors
+ */
+function resetTheme() {
+    const defaultColors = {
+        primary: "#3498db",
+        secondary: "#FFFFFF",
+        accent1: "#e74c3c",
+        accent2: "#e74c3c"
+    };
+
+    document.documentElement.style.setProperty('--primary-color', defaultColors.primary);
+    document.documentElement.style.setProperty('--secondary-color', defaultColors.secondary);
+    document.documentElement.style.setProperty('--accent1-color', defaultColors.accent1);
+    document.documentElement.style.setProperty('--accent2-color', defaultColors.accent2);
+
+    document.body.style.backgroundColor = defaultColors.primary;
+    document.body.style.color = defaultColors.secondary;
+
+    const header = document.querySelector('header');
+    if (header) {
+        header.style.backgroundColor = defaultColors.accent1;
+    }
+
+    console.log("✅ Theme reset to default.");
+}
+
+/**
+ * Apply selected color theme
+ */
+function applyTheme(pack) {
+    document.documentElement.style.setProperty("--primary-color", pack.primary);
+    document.documentElement.style.setProperty("--secondary-color", pack.secondary);
+    document.documentElement.style.setProperty("--accent1-color", pack.accent1);
+    document.documentElement.style.setProperty("--accent2-color", pack.accent2);
+
+    document.body.style.backgroundColor = pack.primary;
+    document.body.style.color = pack.secondary;
+
+    const header = document.querySelector("header");
+    if (header) {
+        header.style.backgroundColor = pack.accent1;
+    }
+
+    console.log(`✅ Theme applied: ${pack.name}`);
+}
+
+/**
+ * Create a color swatch div
+ */
+function createColorSwatch(color) {
+    return `
+        <div class="relative group">
+            <div class="w-6 h-10 rounded-lg hover:scale-125 transition-transform duration-200 cursor-pointer"
+                 style="background-color: ${color};"
+                 onclick="copyToClipboard('${color}', this)">
+            </div>
+            <span class="absolute left-6 -top-6 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                ${color}
+            </span>
+        </div>
+    `;
+}
