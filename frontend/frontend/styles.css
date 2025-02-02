@@ -335,3 +335,15 @@ buttonLike:hover i {
 #reset {
   color: var(--secondary-color);
 }
+
+.footer {
+  background-color: var(--accent-color1);
+  padding: 1rem;
+  text-align: center;
+}
+
+#createBtn {
+  background-color: var(--accent-color);
+  padding: 1rem;
+  text-align: center;
+}

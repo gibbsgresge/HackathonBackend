@@ -145,6 +145,12 @@ function applyTheme(pack) {
     if (header) {
         header.style.backgroundColor = pack.accent1;
     }
+
+    const create = document.getElementById("createBtn");
+    if (create) {
+        create.style.backgroundColor = pack.accent1;
+        create.style.color = pack.secondary;
+    }
 }
 
 /**
