@@ -90,12 +90,32 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 });
 
-/**
-* Handle like button click
-*/
 async function handleLike(button) {
-  await handleVote(button, "like");
+  try {
+      const token = localStorage.getItem("token");
+      if (!token) {
+          alert("You must be logged in to like a color pack.");
+          return;
+      }
+
+      const packId = button.getAttribute("data-pack-id");
+      const res = await fetch(`http://localhost:5000/api/users/like/${packId}`, {
+          method: "PUT",
+          headers: { "Authorization": `Bearer ${token}` }
+      });
+
+      if (!res.ok) throw new Error("Failed to like");
+
+      const updatedData = await res.json();
+      button.querySelector("span").textContent = updatedData.likes;
+
+      // Update button UI to show if it's liked
+      button.classList.toggle("text-yellow-400", updatedData.liked);
+  } catch (error) {
+      console.error("Error liking pack:", error);
+  }
 }
+
 
 /**
 * Handle dislike button click
