@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const totalLikesEl = document.getElementById("totalLikes");
     const createdColorPacksEl = document.getElementById("createdColorPacks");
     const favoritedColorPacksEl = document.getElementById("likedColorPacks");
-     const logoutBtn = document.getElementById("logoutBtn");
+    const logoutBtn = document.getElementById("logoutBtn");
 
     console.log("🔹 Checking DOM Elements:");
     console.log("totalCreationsEl:", totalCreationsEl);
