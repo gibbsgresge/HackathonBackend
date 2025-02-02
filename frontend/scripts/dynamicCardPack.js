@@ -9,9 +9,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     accent2: "#e74c3c"
   };
   const header = document.querySelector('header');
-          if (header) {
-              header.style.backgroundColor = defaultColors.accent1;
-          }
+    if (header) {
+        header.style.backgroundColor = defaultColors.accent1;
+    }
 
   try {
       // Fetch color packs from backend
@@ -24,11 +24,11 @@ document.addEventListener("DOMContentLoaded", async () => {
       // Loop through color packs and generate HTML
       colorPacks.forEach(pack => {
           const themeCard = document.createElement("div");
-          themeCard.className = "hover:scale-110 transition-transform duration-200 ease-in-out theme-pack p-4 bg-white rounded-lg shadow-lg cursor-pointer";
           themeCard.dataset.primary = pack.primary;
           themeCard.dataset.secondary = pack.secondary;
           themeCard.dataset.accent1 = pack.accent1;
           themeCard.dataset.accent2 = pack.accent2;
+          themeCard.className = "hover:scale-110 transition-transform duration-200 ease-in-out theme-pack p-4 bg-white rounded-lg shadow-lg cursor-pointer";
 
           // Add theme name
           themeCard.innerHTML = `
@@ -64,19 +64,19 @@ document.addEventListener("DOMContentLoaded", async () => {
                 </div>
             </div>
 
-            <div class="flex items-center mt-3">
+            <div class="flex items-center mt-3 justify-evenly w-full">
                 <!-- Like Button -->
-                <buttonLike class="flex justify-center items-center gap-1 text-gray-500 hover:text-yellow-400 transition duration-200" onclick="handleLike(this)">
-                    <i class="fas fa-star"></i>
+                <button class="flex justify-center items-center gap-2 text-gray-500 hover:text-yellow-400 transition duration-200 w-24 h-12 px-4 py-2 rounded-lg border border-transparent hover:border-yellow-400" onclick="handleLike(this)">
+                    <i class="fas fa-star text-xl"></i>
                     <span class="text-sm font-bold" id="like-count">0</span>
-                </buttonLike>
-
+                </button>
+            
                 <!-- Dislike Button -->
-                <buttonLike class="flex items-center gap-1 text-gray-500 hover:text-red-400 transition duration-200" onclick="handleDislike(this)">
-                    <i class="fas fa-star-half-alt"></i>
+                <button class="flex items-center gap-2 text-gray-500 hover:text-red-400 transition duration-200 w-24 h-12 px-4 py-2 rounded-lg border border-transparent hover:border-red-400" onclick="handleDislike(this)">
+                    <i class="fas fa-star-half-alt text-xl"></i>
                     <span class="text-sm font-bold" id="dislike-count">0</span>
-                </buttonLike>
-            </div>
+                </button>
+            </div>        
           `;
 
           // Add click event to change the theme when a card is clicked

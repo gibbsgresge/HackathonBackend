@@ -235,9 +235,6 @@ button:hover {
 }
 
 buttonLike {
-  width: 100%;
-  padding: 10px;
-  margin-top: 10px;
   background-color: var(--primary-color);
   color: white;
   font-size: 16px;
@@ -248,6 +245,16 @@ buttonLike {
 buttonLike:hover {
   background-color: var(--accent-color);
 }
+
+buttonLike i {
+  transition: fill 0.3s;
+}
+
+/* Hover effect on icon only */
+buttonLike:hover i {
+  color: var(--accent-color); /* Change color of icon when hovered */
+}
+
 
 /* Color Pack Preview Section */
 .color-pack-preview {
@@ -305,6 +312,16 @@ buttonLike:hover {
 }
 
 #signupBtn {
+  background-color: var(--accent-color);
+  color: var(--secondary-color);
+}
+
+#profileBtn {
+  background-color: var(--secondary-color);
+  color: var(--accent-color);
+}
+
+#logoutBtn {
   background-color: var(--accent-color);
   color: var(--secondary-color);
 }
