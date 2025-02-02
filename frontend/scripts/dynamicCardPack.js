@@ -60,10 +60,29 @@ document.addEventListener("DOMContentLoaded", async () => {
             </div>
           `;
 
-          // Apply the theme when clicking the card (except on like/dislike buttons)
-          themeCard.addEventListener("click", (event) => {
-              if (!event.target.closest(".like-btn") && !event.target.closest(".dislike-btn")) {
-                  applyTheme(pack);
+          // Add click event to change the theme when a card is clicked
+          themeCard.addEventListener('click', () => {
+
+              // Extract colors from the clicked theme card
+              const primary = pack.primary;
+              const secondary = pack.secondary;
+              const accent1 = pack.accent1;
+              const accent2 = pack.accent2;
+
+              // Apply the colors dynamically
+              document.documentElement.style.setProperty('--primary-color', primary);
+              document.documentElement.style.setProperty('--secondary-color', secondary);
+              document.documentElement.style.setProperty('--accent1-color', accent1);
+              document.documentElement.style.setProperty('--accent2-color', accent2);
+
+              // Update the website background and text colors
+              document.body.style.backgroundColor = primary;
+              document.body.style.color = secondary;
+
+              // Optionally, change header and other elements' styles if needed
+              const header = document.querySelector('header');
+              if (header) {
+                  header.style.backgroundColor = accent1;
               }
           });
 
