@@ -7,8 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
       if (token) {
           // User is logged in
           navLinks.innerHTML = `
-              <li><button id="profileBtn" class="bg-white text-blue-600 px-4 py-2 rounded-lg font-bold hover:bg-gray-200">Profile</button></li>
-              <li><button id="logoutBtn" class="bg-red-500 text-white px-4 py-2 rounded-lg font-bold hover:bg-red-700">Logout</button></li>
+              <li><button id="profileBtn" class="px-4 py-2 rounded-lg font-bold">Profile</button></li>
+              <li><button id="logoutBtn" class="px-4 py-2 rounded-lg font-bold">Logout</button></li>
           `;
 
           document.getElementById("profileBtn").addEventListener("click", () => {

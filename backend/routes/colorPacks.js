@@ -97,4 +97,45 @@ router.delete("/:id", verifyToken, async (req, res) => {
     }
 });
 
+
+
+/**
+ * @route PUT /api/colorpacks/like/:id
+ * @desc Increase like count for a color pack
+ * @access Private (requires authentication)
+ */
+router.put("/like/:id", verifyToken, async (req, res) => {
+    try {
+        const colorPack = await ColorPack.findById(req.params.id);
+        if (!colorPack) return res.status(404).json({ message: "Color pack not found" });
+
+        colorPack.likes += 1;
+        await colorPack.save();
+
+        res.json({ message: "Color pack liked", likes: colorPack.likes });
+    } catch (error) {
+        res.status(500).json({ message: "Error liking color pack", error });
+    }
+});
+
+/**
+ * @route PUT /api/colorpacks/dislike/:id
+ * @desc Increase dislike count for a color pack
+ * @access Private (requires authentication)
+ */
+router.put("/dislike/:id", verifyToken, async (req, res) => {
+    try {
+        const colorPack = await ColorPack.findById(req.params.id);
+        if (!colorPack) return res.status(404).json({ message: "Color pack not found" });
+
+        colorPack.dislikes += 1;
+        await colorPack.save();
+
+        res.json({ message: "Color pack disliked", dislikes: colorPack.dislikes });
+    } catch (error) {
+        res.status(500).json({ message: "Error disliking color pack", error });
+    }
+});
+
+
 module.exports = router;

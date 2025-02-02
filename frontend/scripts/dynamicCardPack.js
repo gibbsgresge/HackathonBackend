@@ -8,11 +8,10 @@ document.addEventListener("DOMContentLoaded", async () => {
       accent1: "#e74c3c",
       accent2: "#e74c3c"
   };
-
-  const header = document.querySelector("header");
-  if (header) {
-      header.style.backgroundColor = defaultColors.accent1;
-  }
+  const header = document.querySelector('header');
+          if (header) {
+              header.style.backgroundColor = defaultColors.accent1;
+          }
 
   try {
       // Fetch color packs from backend
@@ -25,11 +24,11 @@ document.addEventListener("DOMContentLoaded", async () => {
       // Loop through color packs and generate HTML
       colorPacks.forEach(pack => {
           const themeCard = document.createElement("div");
-          themeCard.className = "hover:scale-110 transition-transform duration-200 ease-in-out theme-pack p-4 bg-white rounded-lg shadow-lg cursor-pointer";
           themeCard.dataset.primary = pack.primary;
           themeCard.dataset.secondary = pack.secondary;
           themeCard.dataset.accent1 = pack.accent1;
           themeCard.dataset.accent2 = pack.accent2;
+          themeCard.className = "hover:scale-110 transition-transform duration-200 ease-in-out theme-pack p-4 bg-white rounded-lg shadow-lg cursor-pointer";
 
           // Add theme name and author
           themeCard.innerHTML = `
@@ -46,19 +45,19 @@ document.addEventListener("DOMContentLoaded", async () => {
                   ${createColorSwatch(pack.accent2)}
               </div>
 
-              <div class="flex items-center justify-between mt-3">
-                  <!-- Like Button (Left Side) -->
-                  <button class="like-btn flex items-center gap-1 text-gray-500 hover:text-yellow-400 transition duration-200" data-pack-id="${pack._id}">
-                      <i class="fas fa-star"></i>
-                      <span class="text-sm font-bold">${pack.likes}</span>
-                  </button>
+            <div class="flex items-center mt-3">
+                <!-- Like Button -->
+                <buttonLike class="flex justify-center items-center gap-1 text-gray-500 hover:text-yellow-400 transition duration-200" onclick="handleLike(this)">
+                    <i class="fas fa-star"></i>
+                    <span class="text-sm font-bold" id="like-count">0</span>
+                </buttonLike>
 
-                  <!-- Dislike Button (Right Side) -->
-                  <button class="dislike-btn flex items-center gap-1 text-gray-500 hover:text-red-400 transition duration-200" data-pack-id="${pack._id}">
-                      <i class="fas fa-star-half-alt"></i>
-                      <span class="text-sm font-bold">${pack.dislikes}</span>
-                  </button>
-              </div>
+                <!-- Dislike Button -->
+                <buttonLike class="flex items-center gap-1 text-gray-500 hover:text-red-400 transition duration-200" onclick="handleDislike(this)">
+                    <i class="fas fa-star-half-alt"></i>
+                    <span class="text-sm font-bold" id="dislike-count">0</span>
+                </buttonLike>
+            </div>
           `;
 
           // Apply the theme when clicking the card (except on like/dislike buttons)
